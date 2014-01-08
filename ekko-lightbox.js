@@ -95,6 +95,7 @@ License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
         $(document).off('keydown.ekkoLightbox');
       }
       _this.modal.remove();
+      $("body").removeClass("modal-open");
       return _this.options.onHidden.call(_this);
     }).modal('show', options);
     return this.modal;
@@ -258,8 +259,8 @@ License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
     resize: function(width) {
       var width_inc_padding;
       width_inc_padding = width + this.padding.left + this.padding.right;
-      this.modal.find('.modal-content').css('width', width_inc_padding);
-      this.modal.find('.modal-dialog').css('width', width_inc_padding + 20);
+      this.modal.find('.modal-content').css('max-width', width_inc_padding);
+      this.modal.find('.modal-dialog').css('max-width', width_inc_padding + 20);
       this.lightbox_container.find('a').css('padding-top', function() {
         return $(this).parent().height() / 2;
       });
